@@ -160,7 +160,7 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Botão WhatsApp (companheiro do CTA) ---------- */
 .cta-wa {
-  background: linear-gradient(180deg, var(--wa), var(--wa-2));
+  background: var(--card-dark);
   border-radius: var(--radius);
   padding: 15px 16px;
   display: flex;
