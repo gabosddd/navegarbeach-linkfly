@@ -158,6 +158,28 @@ a { color: inherit; text-decoration: none; }
 .cta-quiz__text strong { font-size: 14px; color: #fff; }
 .cta-quiz__arrow { margin-left: auto; font-size: 20px; color: rgba(247, 241, 230, .92); }
 
+/* ---------- Botão WhatsApp (companheiro do CTA) ---------- */
+.cta-wa {
+  background: linear-gradient(180deg, var(--wa), var(--wa-2));
+  border-radius: var(--radius);
+  padding: 15px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  transition: transform .15s ease, filter .15s ease;
+}
+.cta-wa:hover { transform: translateY(-2px); filter: brightness(1.03); }
+.cta-wa__icon {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, .22);
+  display: flex; align-items: center; justify-content: center;
+}
+.cta-wa__icon svg { width: 17px; height: 17px; }
+.cta-wa__text { font-size: 13.5px; font-weight: 700; line-height: 1.25; }
+.cta-wa__arrow { margin-left: auto; font-size: 19px; }
+
 /* ---------- Rótulo de seção ---------- */
 .section-label {
   font-size: 12px;
