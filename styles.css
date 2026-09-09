@@ -1,0 +1,416 @@
+/* =========================================================
+   MOCKUP — Link na Bio (template white-label)
+   Duplique este projeto por cliente e ajuste APENAS o bloco
+   "PALETA DO CLIENTE" abaixo para casar com a marca dele.
+   ========================================================= */
+
+:root {
+  /* ---------- PALETA DO CLIENTE — Navegar Beach (areia / branco / marrom terra) ---------- */
+  --bg-page:   #e4d8c4;   /* fundo atrás da coluna (areia)     */
+  --bg:        #f4ece0;   /* fundo da coluna / página          */
+  --card:      #fffdf9;   /* cards claros (produtos, feed)     */
+  --card-2:    #eee3d2;   /* botões redondos das redes         */
+  --card-dark: #5a4632;   /* cards de contraste (CTA, links) — marrom terra */
+
+  --text:      #241c13;   /* texto principal (quase preto)     */
+  --text-dim:  #4a3b2b;   /* texto secundário                 */
+  --text-mute: #6a5843;   /* rótulos / legendas              */
+  --on-dark:   #f7f1e6;   /* texto sobre os cards de contraste */
+
+  --accent:      #a9744f; /* cor de marca (terracota / terra) */
+  --accent-2:    #7d5236; /* variação mais escura            */
+
+  --wa:        #6f9c6b;   /* verde do card de WhatsApp (dessaturado) */
+  --wa-2:      #567f52;
+  --spotify:   var(--accent);   /* topo do card de playlist    */
+  --spotify-2: var(--accent-2);
+
+  /* ---------- ESTRUTURA (não precisa mexer) ---------- */
+  --line: rgba(0, 0, 0, .10);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --maxw: 430px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg-page);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  display: flex;
+  justify-content: center;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.page {
+  width: 100%;
+  max-width: var(--maxw);
+  min-height: 100vh;
+  background: var(--bg);
+  padding: 28px 18px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- Placeholders de imagem ---------- */
+.img-ph {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,.05) 0 10px, rgba(0,0,0,.09) 10px 20px);
+  border: 1px dashed rgba(0, 0, 0, .35);
+  color: #fff;
+  text-align: center;
+}
+.img-ph span {
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .5px;
+  background: rgba(0, 0, 0, .55);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.img-ph small { font-size: 10px; color: var(--text-dim); }
+
+/* ---------- Perfil ---------- */
+.profile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--accent);
+}
+.avatar img { width: 100%; height: 100%; object-fit: contain; }
+
+/* imagens reais preenchendo os espaços numerados */
+.product-card__img img,
+.ig-post__img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.link-card__thumb img,
+.spotify-episode__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-name { font-size: 22px; font-weight: 800; letter-spacing: .3px; }
+
+.profile-bio { font-size: 13.5px; color: var(--text-dim); }
+
+.socials { display: flex; gap: 14px; margin-top: 4px; }
+
+.social-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--card-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  transition: transform .15s ease, background .15s ease;
+}
+.social-btn:hover { background: #e0d3bd; transform: translateY(-2px); }
+.social-btn svg { width: 20px; height: 20px; }
+
+/* ---------- CTA / Quiz ---------- */
+.cta-quiz {
+  background: var(--card-dark);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  transition: transform .15s ease;
+}
+.cta-quiz:hover { transform: translateY(-2px); }
+.cta-quiz__icon {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+}
+.cta-quiz__icon svg { width: 18px; height: 18px; color: #fff; }
+.cta-quiz__text { font-size: 12.5px; color: rgba(247, 241, 230, .92); display: flex; flex-direction: column; gap: 2px; }
+.cta-quiz__text strong { font-size: 14px; color: #fff; }
+.cta-quiz__arrow { margin-left: auto; font-size: 20px; color: rgba(247, 241, 230, .92); }
+
+/* ---------- Rótulo de seção ---------- */
+.section-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--text);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label__ig {
+  width: 22px; height: 22px;
+  border-radius: 7px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent);
+  color: #fff;
+  flex-shrink: 0;
+}
+.section-label__ig svg { width: 14px; height: 14px; }
+
+/* ---------- Carrossel de posts do Instagram (minimalista) ---------- */
+.ig-carousel {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 18px 8px;
+  margin: 0 -18px;
+}
+.ig-carousel::-webkit-scrollbar { display: none; }
+
+.ig-card {
+  flex: 0 0 62%;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ig-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card-2);
+}
+.ig-card__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ig-card__media.img-ph { display: flex; }
+/* variação que respeita a proporção original da imagem */
+.ig-card__media--fit { aspect-ratio: auto; }
+.ig-card__media--fit img { position: static; width: 100%; height: auto; }
+.ig-card__badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 16, 12, .38);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #fff;
+}
+.ig-card__badge svg { width: 17px; height: 17px; }
+.ig-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 2px;
+}
+.ig-card__actions svg { width: 22px; height: 22px; color: var(--text); }
+.ig-card__actions .is-liked { color: #e8536b; }
+.ig-card__save { margin-left: auto; }
+
+/* ---------- Carrossel de produtos ---------- */
+.carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+  margin: 0 -18px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.carousel::-webkit-scrollbar { display: none; }
+
+.product-card {
+  flex: 0 0 46%;
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.product-card__img { position: relative; aspect-ratio: 1 / 1; width: 100%; flex: none; overflow: hidden; }
+.product-card__title {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  padding: 10px 10px 6px;
+  flex: 1;
+}
+.product-card__btn {
+  margin: 0 10px 10px;
+  background: var(--card-dark);
+  color: var(--on-dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .8px;
+  text-align: center;
+  padding: 7px;
+  border-radius: 7px;
+}
+
+/* ---------- Link cards ---------- */
+.link-card {
+  background: var(--card-dark);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform .15s ease;
+}
+.link-card:hover { transform: translateY(-2px); }
+.link-card__thumb {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.link-card__thumb span { font-size: 9px; }
+.link-card__thumb--light { background: #fff; color: #111; }
+.link-card__text { display: flex; flex-direction: column; gap: 2px; font-size: 11.5px; color: rgba(247, 241, 230, .88); }
+.link-card__text strong { font-size: 13px; color: #fff; letter-spacing: .3px; }
+.link-card__ext { margin-left: auto; color: rgba(247, 241, 230, .78); }
+.link-card__ext svg { width: 16px; height: 16px; }
+
+/* ---------- Spotify ---------- */
+.spotify-card {
+  background: linear-gradient(180deg, var(--spotify), var(--spotify-2));
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.spotify-card__head { display: flex; align-items: center; gap: 10px; }
+.spotify-card__logo svg { width: 26px; height: 26px; color: #1ed760; }
+.spotify-card__meta { display: flex; flex-direction: column; font-size: 11px; color: rgba(255,255,255,.75); }
+.spotify-card__meta strong { font-size: 13px; color: #fff; }
+
+.spotify-episode {
+  background: rgba(0, 0, 0, .28);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.spotify-episode__cover { width: 54px; height: 54px; flex-shrink: 0; border-radius: 8px; overflow: hidden; }
+.spotify-episode__cover span { font-size: 9px; }
+.spotify-episode__info { display: flex; flex-direction: column; gap: 2px; font-size: 10.5px; color: rgba(255,255,255,.7); }
+.spotify-episode__info strong { font-size: 12.5px; color: #fff; }
+.spotify-episode__save { color: #fff; opacity: .85; }
+.spotify-episode__play { margin-left: auto; color: #fff; }
+.spotify-episode__play svg { width: 26px; height: 26px; }
+
+/* ---------- WhatsApp ---------- */
+.wa-card {
+  background: linear-gradient(180deg, var(--wa), var(--wa-2));
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wa-card__head { display: flex; align-items: center; gap: 10px; }
+.wa-card__icon {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .18);
+  display: flex; align-items: center; justify-content: center;
+}
+.wa-card__icon svg { width: 18px; height: 18px; color: #fff; }
+.wa-card__meta { display: flex; flex-direction: column; font-size: 11px; color: rgba(255,255,255,.8); }
+.wa-card__meta strong { font-size: 13px; color: #fff; }
+.wa-card__label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, .92);
+}
+.wa-card__btn {
+  background: rgba(255, 255, 255, .22);
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background .15s ease;
+}
+.wa-card__btn:hover { background: rgba(255, 255, 255, .32); }
+
+/* ---------- Feed Instagram ---------- */
+.ig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ig-post {
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.ig-post__img { position: relative; aspect-ratio: 1 / 1; width: 100%; overflow: hidden; }
+.ig-post__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+}
+.ig-post__actions svg { width: 20px; height: 20px; color: var(--text); }
+.ig-post__actions svg:first-child { color: #ff5a5f; }
+.ig-post__bookmark { margin-left: auto; }
+
+/* ---------- Rodapé ---------- */
+.page-footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 18px;
+  color: var(--text-mute);
+}
+.page-footer strong { font-size: 13px; color: var(--text-dim); }
+.page-footer span { font-size: 10.5px; }
+
+/* ---------- Desktop ---------- */
+@media (min-width: 480px) {
+  body { padding: 24px 0; }
+  .page { border-radius: 26px; min-height: auto; box-shadow: 0 24px 60px rgba(93, 70, 50, .22); }
+}
