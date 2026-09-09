@@ -177,7 +177,15 @@ a { color: inherit; text-decoration: none; }
   display: flex; align-items: center; justify-content: center;
 }
 .cta-wa__icon svg { width: 17px; height: 17px; }
-.cta-wa__text { font-size: 13.5px; font-weight: 700; line-height: 1.25; }
+.cta-wa__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 12px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, .92);
+}
+.cta-wa__text strong { font-size: 14px; color: #fff; }
 .cta-wa__arrow { margin-left: auto; font-size: 19px; }
 
 /* ---------- Rótulo de seção ---------- */
